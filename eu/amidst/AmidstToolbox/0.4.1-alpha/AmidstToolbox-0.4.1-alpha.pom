@@ -206,6 +206,24 @@
                 </executions>
             </plugin>
             
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+            <configuration>
+              <keyname>1D3E048C</keyname>
+              <!--passphraseServerId>${gpg.keyname}</passphraseServerId-->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
             
         </plugins>
     </build>
