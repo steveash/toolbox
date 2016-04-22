@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.amidst</groupId>
     <artifactId>AmidstToolbox</artifactId>
-    <version>${AMIDSTver}</version>
+    <version>0.4.2</version>
 
     <name>AmidstToolbox</name>
 
@@ -178,7 +178,8 @@
                 </configuration>
             </plugin>
 
-            
+            <!-- Comment this plugin for not uploading the artifacts to the repository -->
+
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
@@ -194,7 +195,6 @@
                     <merge>true</merge>
                 </configuration>
                 <executions>
-
                     <execution>
                         <goals>
                             <goal>site</goal>
@@ -221,7 +221,33 @@
           </execution>
         </executions>
       </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <aggregate>true</aggregate> <!-- this enables aggretation -->
+                </configuration>
+            </plugin>
             
+
+
+
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>flatten-maven-plugin</artifactId>
+            <!--<version>1.0.0</version>-->
+            <configuration>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>flatten</id>
+                    <phase>process-resources</phase>
+                    <goals>
+                        <goal>flatten</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
         </plugins>
     </build>
 </project>
