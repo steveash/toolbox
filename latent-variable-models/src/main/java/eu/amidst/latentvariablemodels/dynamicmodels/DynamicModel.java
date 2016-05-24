@@ -20,6 +20,7 @@ import eu.amidst.dynamic.learning.parametric.bayesian.SVB;
 import eu.amidst.dynamic.models.DynamicBayesianNetwork;
 import eu.amidst.dynamic.models.DynamicDAG;
 import eu.amidst.dynamic.variables.DynamicVariables;
+import eu.amidst.flinklink.core.learning.parametric.dVMP;
 import eu.amidst.latentvariablemodels.staticmodels.exceptions.WrongConfigurationException;
 
 /**
@@ -32,6 +33,9 @@ import eu.amidst.latentvariablemodels.staticmodels.exceptions.WrongConfiguration
 public abstract class DynamicModel {
 
     ParameterLearningAlgorithm learningAlgorithm = null;
+
+    protected eu.amidst.flinklink.core.learning.parametric.ParameterLearningAlgorithm learningAlgorithmFlink = null;
+
 
     protected DynamicDAG dynamicDAG;
 
@@ -63,6 +67,28 @@ public abstract class DynamicModel {
     public void setWindowSize(int windowSize){
         this.windowSize = windowSize;
     }
+
+
+    private void initLearningFlink() {
+
+        //TODO: write initialization of learning algorithm with flink
+
+        /*
+        if(learningAlgorithmFlink==null)
+            learningAlgorithmFlink = new dVMP();
+
+        learningAlgorithmFlink.setBatchSize(windowSize);
+        learningAlgorithmFlink.setDynamicDAG(this.getDynamicDAG());
+        learningAlgorithmFlink.setDAG(this.getDynamicDAG());
+        learningAlgorithmFlink.initLearning();
+
+        initialized=true;
+
+        */
+
+
+    }
+
 
 
     private void initLearning() {
